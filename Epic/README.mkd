@@ -15,7 +15,7 @@ Translate all Fortran Files
 
 - Use Parm, I believe uses global variables. Again, this needs to be addressed when rewriting for C#
 
-- Fortran starts indices at 1 instead of 0***
+- Fortran starts indices at 1 instead of 0
     - Some for loops might need to be changed
 
 - Lines to uncomment once others are coded
@@ -40,16 +40,17 @@ About
 
 The people in charge of these are:
 
-Brian Cain - bccain@ksu.edu
-    A-D, H, S
+* Brian Cain
+    - A-D, H, S
 
-Heath Yates - hlyates@ksu.edu
-    E
-Emily Jordan - delamern@ksu.edu
-    W
-Paul Cain - nietz111@ksu.edu
-	I,O,P,R
-Brian Dye - kascade@ksu.edu
-    G, some H, N
-Dustin Seabourn - dustin5@ksu.edu
-    
+* Heath Yates
+    - E
+
+* Emily Jordan
+    - W
+
+* Paul Cain
+	- I,O,P,R
+
+* Brian Dye
+    - G, some H, N
