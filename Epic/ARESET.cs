@@ -163,7 +163,7 @@ namespace Epic
 			PARM.YLN = 0;
 			PARM.YLP = 0;
 			int j;
-			for (j = 0; j < 21; j++){
+			for (j = 0; j <= 21; j++){
 				PARM.IX[j] = PARM.IX0[j];
 				PARM.IDG[j] = j;
 			}

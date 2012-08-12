@@ -21,7 +21,7 @@ namespace Epic
             if (NNARG > 9) NNARG = 9;
 
             int I;
-            for (I = 1; I < NNARG; I++){
+            for (I = 1; I <= NNARG; I++){
                 //GETARG(I-1, CM[I], NCHAR);
 				// Retrieve the POS-th argument that was passed on the command line when the containing program was invoked.
             }
