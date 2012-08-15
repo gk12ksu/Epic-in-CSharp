@@ -59,7 +59,7 @@ namespace Epic
 			}
 			PARM.JPL = init_int_arr(PARM.JPL);
 			PARM.IRL = 0;
-			//Functions.ADAJ(PARM.NC,PARM.IBD,PARM.IMO0,PARM.IDA0,PARM.NYD); // invalid arugments here...
+			Functions.ADAJ(PARM.NC,PARM.IBD,PARM.IMO0,PARM.IDA0,PARM.NYD);
 			PARM.JCN = 0;
 			PARM.JCN0 = 0;
 			PARM.JCN1 = 0;
@@ -138,7 +138,7 @@ namespace Epic
 			PARM.TSR = init_doub_arr(PARM.TSR);
 			PARM.TSTL = init_doub_arr(PARM.TSTL);
 			PARM.TSY = init_doub_arr(PARM.TSY);
-			//PARM.TUN1 = init_doub_arr(PARM.TUN1); // TUN1 doesn't exist in modparam
+			PARM.TUN1 = init_doub_arr(PARM.TUN1);
 			PARM.TVIR = init_doub_arr(PARM.TVIR);
 			PARM.TXMX = init_doub_arr(PARM.TXMX);
 			PARM.TXMN = init_doub_arr(PARM.TXMN);
@@ -158,7 +158,7 @@ namespace Epic
 			PARM.VARP = init_doub2_arr(PARM.VARP);
 			PARM.W = init_doub_arr(PARM.W);
 			PARM.XIM = init_doub_arr(PARM.XIM);
-			//PARM.YLC = init_doub_arr(PARM.YLC); // YLC doesn't exist in modparam
+			PARM.YLC = init_doub_arr(PARM.YLC);
 			PARM.YLK = 0;
 			PARM.YLN = 0;
 			PARM.YLP = 0;

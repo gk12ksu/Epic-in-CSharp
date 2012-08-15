@@ -24,7 +24,7 @@ namespace Epic
 			
 			int k;
 			for (k = 0; k < N1; k++){
-				int L = PARM.LID[k]; //What is this in Fortran???
+				int L = PARM.LID[k];
 				//int L = 1;
 				while (J <= N2){
 					if (PARM.ZC[J] > PARM.Z[L]) break;

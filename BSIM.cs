@@ -207,16 +207,15 @@ namespace Epic
             double I3 = PARM.IWIX[(int)MOP];
 			
 			// PMAV doesn't exist, and again there is no clear def for it.
-			
-            //PARM.RFVM = PARM.PMAV(FMO1,FMO2,RST[0,I2,I1],RST[0,I3,MOP]);
-            //RFSD = PARM.PMAV(FMO1,FMO2,RST[1,I2,I1],RST[1,I3,MOP]);
-            //RFSK = PARM.PMAV(FMO1,FMO2,RST[2,I2,I1],RST[2,I3,MOP]);
-            //PRWM = PARM.PMAV(FMO1,FMO2,PRW[LW,I2,I1],PRW[LW,I3,MOP]);
-            //PARM.TMXM = PARM.PMAV(FMO1,FMO2,OBMX[I2,I1],OBMX[I3,MOP]);
-            //PARM.TMNM = PARM.PMAV(FMO1,FMO2,OBMN[I2,I1],OBMN[I3,MOP]);
-            //TXSD = PARM.PMAV(FMO1,FMO2,SDTMX[I2,I1],SDTMX[I3,MOP]);
-            //TNSD = PARM.PMAV(FMO1,FMO2,SDTMN[I2,I1],SDTMN[I3,MOP]);
-            //PARM.SRAM = PARM.PMAV(FMO1,FMO2,OBSL[I2,I1],OBSL[I3,MOP]);
+            PARM.RFVM = PARM.PMAV(FMO1,FMO2,RST[0,I2,I1],RST[0,I3,MOP]);
+            RFSD = PARM.PMAV(FMO1,FMO2,RST[1,I2,I1],RST[1,I3,MOP]);
+            RFSK = PARM.PMAV(FMO1,FMO2,RST[2,I2,I1],RST[2,I3,MOP]);
+            PRWM = PARM.PMAV(FMO1,FMO2,PRW[LW,I2,I1],PRW[LW,I3,MOP]);
+            PARM.TMXM = PARM.PMAV(FMO1,FMO2,OBMX[I2,I1],OBMX[I3,MOP]);
+            PARM.TMNM = PARM.PMAV(FMO1,FMO2,OBMN[I2,I1],OBMN[I3,MOP]);
+            TXSD = PARM.PMAV(FMO1,FMO2,SDTMX[I2,I1],SDTMX[I3,MOP]);
+            TNSD = PARM.PMAV(FMO1,FMO2,SDTMN[I2,I1],SDTMN[I3,MOP]);
+            PARM.SRAM = PARM.PMAV(FMO1,FMO2,OBSL[I2,I1],OBSL[I3,MOP]);
             IPC = Math.Max(IPC,PARM.IDA);
             double XDA1 = 31.0-XDA;
             double LNS = PARM.LID[PARM.NBSL];

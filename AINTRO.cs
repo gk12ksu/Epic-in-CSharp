@@ -27,8 +27,7 @@ namespace Epic
 			for (k = 0; k < N1; k++){
 				AD1 = AD1 + X[k];
 				while (J <= N2){
-					// L = LID(J) What is this?
-					int L = 1; // place holder for L
+					L = PARM.LID[J];
 					if (PARM.Z[1] > PARM.ZC[k]) break;
 					Y[L] = TOT + X[k]*(PARM.Z[L] - Z1)/PARM.DZ;
 					AD2 += Y[L];

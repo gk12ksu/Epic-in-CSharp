@@ -20,14 +20,14 @@ namespace Epic
 			
 			
 			for (PARM.JDA = J; PARM.JDA > K; PARM.JDA++){
-				//Functions.AXMON(ref PARM.JDA, ref PARM.MO);
+				Functions.AXMON(ref PARM.JDA, ref PARM.MO);
 				if(PARM.JDHU <= 366){
 					//Functions.WHRL();
 					if (PARM.HRLT < PARM.WDRM && NHS == 0){
 						continue;	
 					}
 				}
-				double TA = 0.0;//Functions.ARALT(PARM.TAV, XX);
+				double TA = Functions.ARALT(PARM.TAV, XX);
 				double TGX = TA - BASE;
 				if (TGX > 0){
 					CAHU = CAHU+TGX;	

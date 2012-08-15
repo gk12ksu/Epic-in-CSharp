@@ -38,12 +38,12 @@ namespace Epic
 			DateTime today_2 = DateTime.Today;
 			string time_2 = DateTime.Now.ToString("HH:mm:ss tt");
 			// More global variables....
-			//Functions.ALPYR(PARM.IY, PARM.NYD, PARM.LPYR);
-			//Functions.ADAJ(PARM.NC, PARM.IEDT, PARM.MO, PARM.IDA, NYD);
-			//Functions.ALPYR(IYER, NYD, LPYR);
-			//Functions.ADAJ(NC, IBDX, IMON, IDAY, NYD);
+			Functions.ALPYR(PARM.IY, PARM.NYD, PARM.LPYR);
+			Functions.ADAJ(PARM.NC, PARM.IEDT, PARM.MO, PARM.IDA, NYD);
+			Functions.ALPYR(IYER, NYD, LPYR);
+			Functions.ADAJ(NC, IBDX, IMON, IDAY, NYD);
 			
-			//double I1 = 86400*((PARM.IY-PARM.IYER)*(366-PARM.NYD)+PARM.IEDT-PARM.IBDX);
+			double I1 = 86400*((PARM.IY-PARM.IYER)*(366-PARM.NYD)+PARM.IEDT-PARM.IBDX);
 			double IBT = PARM.IT1*3600+PARM.IT2*60+PARM.IT3;
 			double IEX = 0;//PARM.IEH*3600+IEM*60+IES;
 			

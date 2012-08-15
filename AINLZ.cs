@@ -20,7 +20,7 @@ namespace Epic
 			foreach (int x in PARM.ICUS){
 				PARM.ICUS[x] = 0;
 			}
-			//PARM.IDFT[0] = IDF0; //ISSUE HERE, IFD0 doesn't exist in modparam or here...what is it?
+			PARM.IDFT[0] = PARM.IDF0;
 			PARM.IDRL = 0;
 			foreach (int x in PARM.IGMD){
 				foreach (int y in PARM.IGMD){
@@ -880,7 +880,7 @@ namespace Epic
 				PARM.XMTU[x] = 0.0;
 			}
 			PARM.YEW = 0;
-			//PARM.YLC = 0; // Mono says YLC doesn't exist....
+			PARM.YLC = 0;
 			//PARM.YLCF = 0;
 			foreach (int x in PARM.YLCF){
 				foreach (int y in PARM.YLCF){
