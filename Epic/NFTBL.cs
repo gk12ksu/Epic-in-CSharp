@@ -10,9 +10,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/10/2012
      */
-    public class NFTBL
+    public partial class Functions
     {
-        public NFTBL(ref int L)
+        public static void NFTBL(ref int L)
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 
@@ -20,7 +20,7 @@ namespace Epic
 
             if (PARM.NDF > 0)
             {
-                for (L = 1; L < PARM.NDF; L++)
+                for (L = 1; L <= PARM.NDF; L++)
                 {
                     if (PARM.KDF[L - 1] == PARM.JX[6])
                         return;
@@ -65,7 +65,7 @@ namespace Epic
                 {
                     I = Int16.Parse(stats[0]);
                     PARM.FTNM[PARM.NDF - 1] = stats[1];
-                    for (int K = 2; K < 11; K++)
+                    for (int K = 2; K <= 11; K++)
                     {
                         XTP[K - 1] = double.Parse(stats[K - 1]);
                     }

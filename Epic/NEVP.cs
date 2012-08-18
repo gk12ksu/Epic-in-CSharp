@@ -9,9 +9,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/10/2012
      */
-    public class NEVP
+    public partial class Functions
     {
-        public NEVP()
+        public static void NEVP()
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 
@@ -19,7 +19,7 @@ namespace Epic
                 return;
             double TOT = 0.0;
 
-            for (int J = PARM.NEV; J > 2; J--)
+            for (int J = PARM.NEV; J >= 2; J--)
             {
                 PARM.ISL = PARM.LID[J - 1];
                 if (PARM.AP[PARM.ISL - 1] < .001)

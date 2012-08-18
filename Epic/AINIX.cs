@@ -2,14 +2,18 @@ using System;
 
 namespace Epic
 {
-	public class AINIX
+	public partial class Functions
 	{
-		public AINIX ()
+		public static void AINIX ()
 		{
 			// EPICv0810
 			// Translated by Brian Cain
 			// This program initializes random number generator seeds.
 			// (Is this even needed...?)
+
+            /* ADDITIONAL CHANGE
+           * 8/16/2012    Modified by Paul Cain to make it part of the Functions partial class
+           */
 			
 //			USE PARM
 //			IX(1)=748932582

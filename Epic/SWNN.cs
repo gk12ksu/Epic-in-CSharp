@@ -2,9 +2,9 @@ using System;
 
 namespace Epic 
 {
-	public class SWNN
+	public partial class Functions
 	{
-		public SWNN (double CL, double SA, double OC, double W1, double F3)
+		public static void SWNN (double CL, double SA, double OC, ref double W1, ref double F3)
 		{
         //    SUBROUTINE SWNN(CL,SA,OC,W1,F3)
         //    EPIC0810
@@ -16,6 +16,13 @@ namespace Epic
             /* ADDITIONAL CHANGE
             * 8/1/2012    Modified by Paul Cain to fix build errors
             */
+
+            /* ADDITIONAL CHANGE
+             * 8/17/2012    Modified by Paul Cain to make it part of the Functions partial class
+             *              and changed whether some paramters are pass-by-reference so that only 
+             *              the parameters that are actually modified are declared as pass-by-
+             *              reference.
+             */
 
         	  Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
               double[] DXS = new double[PARM.NSX];

@@ -2,9 +2,9 @@ using System;
 
 namespace Epic
 {
-	public class SOLIO
+	public partial class Functions
 	{
-		public SOLIO (ref double[] YTP, ref double L)
+		public static void SOLIO (ref double[] YTP, double L)
 		{
 			// EPICv0810
 			// Translated by Brian Cain
@@ -12,6 +12,11 @@ namespace Epic
 			
 			// The fortran file uses global variables, refer to MODPARAM.cs for
 			// a list of all global variables
+
+            /* ADDITIONAL CHANGE
+             * 8/16/2012    Modified by Paul Cain to make it part of the Functions partial class
+             *              and made only the parameters that are modified be pass-by-reference.
+             */
 			
 			Epic.MODPARAM PARM  =  Epic.MODPARAM.Instance;
 			YTP = new double[16];

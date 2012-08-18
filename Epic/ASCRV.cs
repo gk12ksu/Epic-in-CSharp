@@ -4,7 +4,7 @@ namespace Epic
 {
 	public partial class Functions
 	{
-		public static double ASCRV (ref double X1, ref double X2, ref double X3, ref double X4)
+		public static double ASCRV (ref double X1, ref double X2, double X3, double X4)
 		{
 			// Epicv0810
 			// Translated by Brian Cain
@@ -12,6 +12,13 @@ namespace Epic
 			
 			// The fortran file uses global variables, refer to MODPARAM.cs for
 			// a list of all global variables
+
+            /* ADDITIONAL CHANGE
+             * 8/16/2012    Modified by Paul Cain to make two parameters pass by 
+             *              value instead of pass by reference because they did 
+             *              not need to be pass by reference and Main passes them 
+             *              literals. 
+             */
 			
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 			

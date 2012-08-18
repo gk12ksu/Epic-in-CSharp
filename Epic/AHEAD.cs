@@ -2,9 +2,9 @@ using System;
 
 namespace Epic
 {
-	public class AHEAD
+	public partial class Functions
 	{
-		public AHEAD ()
+		public static void AHEAD ()
 		{
 			// EPICv0810
 			// Translated by Brian Cain
@@ -12,6 +12,10 @@ namespace Epic
 			
 			// Is this needed for C#? I don't think so....
 			// But I'll leave the file here as a place holder
+
+            /* ADDITIONAL CHANGE
+            * 8/16/2012    Modified by Paul Cain to make it part of the Functions partial class
+            */
 			
 //			USE PARM
 //			HEDC=(/" HUI"," LAI","  RD","  RW","BIOM","PLTC"," STL","CPHT",&

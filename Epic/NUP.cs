@@ -10,9 +10,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/10/2012
      */
-    public class NUP
+    public partial class Functions
     {
-        public NUP()
+        public static void NUP()
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
             double CNT;

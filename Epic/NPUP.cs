@@ -10,9 +10,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/10/2012
      */
-    public class NPUP
+    public partial class Functions
     {
-        public NPUP()
+        public static void NPUP()
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
             double CPT;

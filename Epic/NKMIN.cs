@@ -10,9 +10,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/10/2012
      */
-    public class NKMIN
+    public partial class Functions
     {
-        public NKMIN()
+        public static void NKMIN()
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 

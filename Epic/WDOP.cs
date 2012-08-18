@@ -2,11 +2,11 @@ using System;
 
 namespace Epic
 {
-	public class WDOP
+	public partial class Functions
 	{
         private static MODPARAM PARM = MODPARAM.Instance;
 
-		public WDOP (double ID)
+		public static void WDOP (ref double ID)
 		{
 			// EPICv0810
 			// Translated by Emily Jordan
@@ -14,6 +14,10 @@ namespace Epic
             /* ADDITIONAL CHANGE
             * 8/1/2012    Modified by Paul Cain to fix build errors
             */
+
+            /* ADDITIONAL CHANGE
+           * 8/17/2012    Modified by Paul Cain to make it part of the Functions partial class
+           */
 			
 			//THIS FILE IS NOT FINISHED!!!!! NEEDS TRANSLATION ON THE READ/WRITE COMMANDS
 			//This program is reading information from a weather report, then writing the

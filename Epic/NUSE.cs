@@ -10,14 +10,14 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/11/2012
      */
-    public class NUSE
+    public partial class Functions
     {
-        public NUSE()
+        public static void NUSE()
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 
             double XX=1.5*PARM.UPP/PARM.RW[PARM.JJK-1];
-            for (int J = 1; J < PARM.LRD; J++)
+            for (int J = 1; J <= PARM.LRD; J++)
             {
                 PARM.ISL = PARM.LID[J - 1];
                 PARM.UN[PARM.ISL - 1] = Math.Max(0.0, (PARM.WNO3[PARM.ISL - 1] - .001 * PARM.PRMT[26] * PARM.WT[PARM.ISL - 1]) * PARM.U[PARM.ISL - 1] / (PARM.ST[PARM.ISL - 1] + .001));

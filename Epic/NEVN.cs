@@ -9,20 +9,20 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/10/2012
      */
-    public class NEVN
+    public partial class Functions
     {
-        public NEVN()
+        public static void NEVN()
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 
-            for (int J = 1; J < PARM.NBSL; J++)
+            for (int J = 1; J <= PARM.NBSL; J++)
             {
                 PARM.ISL = PARM.LID[J - 1];
             }
             if (PARM.NEV == 1)
                 return;
             double TOT = 0.0;
-            for (int J = PARM.NEV; J > 2; J--)
+            for (int J = PARM.NEV; J >= 2; J--)
             {
                 PARM.ISL = PARM.LID[J - 1];
                 double X1 = PARM.WNO3[PARM.ISL - 1] - .001 * PARM.WT[PARM.ISL - 1] * PARM.PRMT[26];

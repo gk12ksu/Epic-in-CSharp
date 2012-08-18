@@ -2,9 +2,9 @@ using System;
 
 namespace Epic
 {
-	public class CPTBL
+	public partial class Functions
 	{
-		public CPTBL ()
+		public static void CPTBL ()
 		{
             // EPICv0810
 			// Translated by Brian Cain
@@ -12,6 +12,10 @@ namespace Epic
 			
 			// The fortran file uses global variables, and needs to be fixed
 			// for C# style coding
+
+            /* ADDITIONAL CHANGE
+             * 8/17/2012    Modified by Paul Cain to make it part of the Functions partial class
+             */
 			
             Epic.MODPARAM PARM  =  Epic.MODPARAM.Instance;
 

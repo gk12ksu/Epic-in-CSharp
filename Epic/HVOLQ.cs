@@ -9,9 +9,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/7/2012
      */
-    public class HVOLQ
+    public partial class Functions
     {
-        public HVOLQ()
+        public static void HVOLQ()
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 
@@ -30,7 +30,7 @@ namespace Epic
             int J;
             double ZZ;
             
-            for (int JJ = 1; JJ < PARM.NBSL; JJ++)
+            for (int JJ = 1; JJ <= PARM.NBSL; JJ++)
             {
                 J = PARM.LID[JJ - 1];
                 
@@ -50,7 +50,7 @@ namespace Epic
 
             lbl25: if (PARM.NVCN > 1) goto lbl19;
             int L1 = 0, L;
-            for (int JJ = 1; JJ < PARM.NBSL; JJ++)
+            for (int JJ = 1; JJ <= PARM.NBSL; JJ++)
             {
                 L = PARM.LID[JJ - 1];
                 if (PARM.Z[L - 1] > 1.0) goto lbl26;
@@ -88,7 +88,7 @@ namespace Epic
             goto lbl20;
             lbl19: if (PARM.NVCN > 2) goto lbl28;
 
-            for (int JJ = 1; JJ < PARM.NBSL; JJ++)
+            for (int JJ = 1; JJ <= PARM.NBSL; JJ++)
             {
                 PARM.ISL = PARM.LID[JJ - 1];
                 SUM = SUM + PARM.ST[PARM.ISL - 1] - PARM.S15[PARM.ISL - 1];
@@ -106,7 +106,7 @@ namespace Epic
             lbl20: double BB = .2 * PARM.SCN;
             double TOT = 100.0;
             int I;
-            for (I = 1; I < 9; I++)
+            for (I = 1; I <= 9; I++)
             {
                 TOT = TOT - 5.0;
                 if (PARM.CN > TOT) break;

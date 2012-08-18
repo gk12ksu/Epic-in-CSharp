@@ -9,9 +9,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/11/2012
      */
-    public class NPMN
+    public partial class Functions
     {
-        public NPMN(ref double CS)
+        public static void NPMN(ref double CS)
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 

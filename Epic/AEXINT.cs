@@ -2,14 +2,18 @@ using System;
 
 namespace Epic
 {
-	public class AEXINT
+	public partial class Functions
 	{
-		public void DoAEXINT (ref double WW, out double SUM)
+		public static void AEXINT (ref double WW, out double SUM)
 		{
 			
 			// EPICv0810
 			// Translated by Brian Cain
 			// This program integrates the modified exponential EQ
+
+            /* ADDITIONAL CHANGE
+            * 8/16/2012    Modified by Paul Cain to make it part of the Functions partial class
+            */
 			
 			double X1 = 1;
 			double DX = .1;

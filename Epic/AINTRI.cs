@@ -2,9 +2,9 @@ using System;
 
 namespace Epic
 {
-	public class AINTRI
+	public partial class Functions
 	{
-		public AINTRI (ref double[] X, ref double[] Y, ref int N1, ref int N2)
+		public static void AINTRI (ref double[] X, ref double[] Y, ref int N1, ref int N2)
 		{
 			// EPICv0810
 			// Translated by Brian Cain
@@ -14,6 +14,10 @@ namespace Epic
 			
 			// The fortran file uses global variables, refer to MODPARAM.cs for
 			// a list of all global variables
+
+            /* ADDITIONAL CHANGE
+             * 8/17/2012    Modified by Paul Cain to make it part of the Functions partial class
+             */
 			
 		    Epic.MODPARAM PARM  =  Epic.MODPARAM.Instance;
 
@@ -24,7 +28,7 @@ namespace Epic
 			
 			int k;
 			for (k = 0; k < N1; k++){
-				int L = PARM.LID[k]; //What is this in Fortran???
+				int L = PARM.LID[k];
 				//int L = 1;
 				while (J <= N2){
 					if (PARM.ZC[J] > PARM.Z[L]) break;

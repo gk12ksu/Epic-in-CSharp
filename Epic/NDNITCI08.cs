@@ -14,15 +14,9 @@ namespace Epic
      * 
      * The source code of NDNITCI08 seems to be identicle to NDNITCI
      */
-
-    /*
-     * ADDITIONAL CHANGE
-     * 7/30/2012    Modified by Paul Cain, changing the class name from 
-     *              NDNITCI to NDNITCI08 to prevent build errors
-     */
-    public class NDNITCI08
+    public partial class Functions
     {
-        public NDNITCI08()
+        public static void NDNITCI()
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 
@@ -40,7 +34,7 @@ namespace Epic
 !     SM2=0.
 !     SM3=0.
 */
-            for (int J = 1; J < PARM.NBCL; J++)
+            for (int J = 1; J <= PARM.NBCL; J++)
             {
                 //AD1=AD1+WNO3(J)+WNO2(J)
                 //EA=TOTAL ELECTRONS ACCEPTED BY O2 AND N OXIDES

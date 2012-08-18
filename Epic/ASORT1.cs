@@ -2,9 +2,9 @@ using System;
 
 namespace Epic
 {
-	public class ASORT1
+	public partial class Functions
 	{
-		public ASORT1 (ref int[] X, ref int[] NX, ref int M)
+		public static void ASORT1 (ref double[] X, ref int[] NX, ref int M)
 		{
 			// Epicv0810
 			// Translated by Brian Cain
@@ -12,8 +12,15 @@ namespace Epic
 			// using ripple sort (This is really bad, maybe we can optimize this?
 			// I'm pretty sure this is no better than bubble sort. It has a
 			// worst case performance of O(n^2). Best case O(n) )
+
+            /* ADDITIONAL CHANGE
+            * 8/17/2012    Modified by Paul Cain to make it part of the Functions partial class
+            *               and also change the X parameter from int[] to double[] because the 
+            *               only two calls that use this method pass it a double[] for the X
+            *               parameters.
+            */
 			
-			X = new int[200];
+			X = new double[200];
 			NX = new int[200];
 			int NB = M - 1;
 			int J = M;

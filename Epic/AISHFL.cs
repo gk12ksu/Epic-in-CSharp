@@ -2,9 +2,9 @@ using System;
 
 namespace Epic
 {
-	public class AISHFL
+	public partial class Functions
 	{
-		public AISHFL ()
+		public static void AISHFL ()
 		{
 			// EPICv0810
 			// Translated by Brian Cain
@@ -12,6 +12,10 @@ namespace Epic
 			
 			// The fortran file uses global variables, refer to MODPARAM.cs for
 			// a list of all global variables
+
+            /* ADDITIONAL CHANGE
+            * 8/16/2012    Modified by Paul Cain to make it part of the Functions partial class
+            */
 			
             Epic.MODPARAM PARM  =  Epic.MODPARAM.Instance;
 			

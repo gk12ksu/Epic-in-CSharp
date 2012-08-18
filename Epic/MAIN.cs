@@ -21,10 +21,12 @@ namespace Epic
      * 
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/23/2012
+     * 
+     * Modified by Paul Cain on 8/16/2012 and 8/17/2012 to fix build errors.
      */
     public class MAIN
     {
-        public static void MAIN()
+        static void Main(string[] args)
         {
             int NFL = 0; //Remove this when the file I/O has been finished
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
@@ -40,7 +42,7 @@ namespace Epic
             string WINDFILE, WPM1FILE;
             //char[] AGSM = new char[80];
             string AGSM;
-            int ISIT, INPS, IOPS;
+            int ISIT = 0, INPS = 0, IOPS = 0;
 
             char[] AYR = new char[150], TITW5 = new char[2];//CM = new char[9];
             string[] CM = new string[9];
@@ -217,10 +219,10 @@ namespace Epic
             !          > 0 FOR AUTO P APPLICATION
             !     LINE 1/2                                     
              */
-            int ICOR, INFL0, IRW, IGMX;
+            int ICOR=0, INFL0=0, IRW=0, IGMX=0;
             //READ(KR(21),300)NBYR,IYR0,IMO0,IDA0,IPD,NGN,IGN,IGS0,LPYR,IET,ISCN,ITYP,ISTA,IHUS,NDUM,NVCN,INFL0,MASP,LBP,NSTP,IGMX,IERT,ICG,LMS,ICF,ISW,IRW,ICO2,IDUM,ICOR,IDN,NUPC,IOX,IDI0,ISAT,IAZM,IPAT                                        
             // Reads from EPICCONT.DAT to give values to these global variables
-            int IDI0;
+            int IDI0=0;
             PARM.MYR = PARM.NBYR;
 
             switch (IDI0 + 1)
@@ -258,7 +260,9 @@ namespace Epic
             CALL OPENV(KR(27),FWLST,IDIR(1),KW(MSO))*/
             if (PARM.IBAT > 0)
             {
-                Functions.GETCL(CM, PARM.KW);
+                //Translator's note: the line below has been commented out 
+                //  until we decide how to handle file IO
+                //Functions.GETCL(CM, PARM.KW);
                 PARM.ASTN = CM[1];
             }
             else
@@ -299,9 +303,9 @@ namespace Epic
             for (I = 1; I <= 29; I++)
             {
                 if (PARM.SCRP[I - 1, 0] < 1.0E-10) continue;
-                X1 = Functions.ASPLT(PARM.SCRP[I - 1, 0]);
-                X2 = Functions.ASPLT(PARM.SCRP[I - 1, 1]);
-                Functions.ASCRV(PARM.SCRP[I - 1, 0], PARM.SCRP[I - 1, 1], X1, X2);
+                X1 = Functions.ASPLT(ref PARM.SCRP[I - 1, 0]);
+                X2 = Functions.ASPLT(ref PARM.SCRP[I - 1, 1]);
+                Functions.ASCRV(ref PARM.SCRP[I - 1, 0], ref PARM.SCRP[I - 1, 1], X1, X2);
             }
             //!     CQP  = COEFS OF 7TH DEG POLY IN TR55 QP EST                                    
             //READ(KR(10),396)CQP               **reading file FTR55
@@ -476,7 +480,7 @@ namespace Epic
             !            YSD(6)=BUS(1)*QD**BUS(2)*QP**BUS(3)*WSA**BUS(4)*KCPLS                   
             !     LINE 3/6
             */
-            double RST0, ANG0, DIAM, DRV, YWI, BTA, PEC0, CO20, CNO30, RFN0, SOLQ, DDLG, BFT0, FNP, FDS0, DRT;
+            double RST0 = 0.0, ANG0 = 0.0, DIAM = 0.0, DRV = 0.0, YWI = 0.0, BTA = 0.0, PEC0 = 0.0, CO20 = 0.0, CNO30 = 0.0, RFN0 = 0.0, SOLQ = 0.0, DDLG = 0.0, BFT0 = 0.0, FNP = 0.0, FDS0 = 0.0, DRT = 0.0;
             //READ(KR(21),303)RFN0,CO20,CNO30,CSLT,PSTX,YWI,BTA,EXPK,FL,FW,ANG0,STD0,UXP,DIAM,ACW,BIR,EFI,VIMX,ARMN,ARMX,BFT0,FNP,FMX,DRT,FDS0,PEC0,VLGN,COWW,DDLG,SOLQ,GZLM,FFED,DZ,DRV,RST0,BUS
             //Reading from File  EPICCONT.DAT
             double BUS0 = PARM.BUS[0];
@@ -656,8 +660,8 @@ namespace Epic
             int KK;
         lbl519: while (true)
             {
-                int IWP5;
-                double IWP1, IWND, IWTH;
+                int IWP5=0;
+                double IWP1=0.0, IWND=0.0, IWTH=0.0;
                 if (PARM.IBAT == 0)
                 {
 
@@ -779,7 +783,7 @@ namespace Epic
                 ! 11  AZM  = AZIMUTH ORIENTATION OF LAND SLOPE (DEGREES CLOCKWISE FROM NORTH)              
                 !     LINE 4
                  */
-                double CO2X, CNO3X, RFNX, APM, AZM, SNO0;
+                double CO2X = 0.0, CNO3X = 0.0, RFNX = 0.0, APM = 0.0, AZM = 0.0, SNO0 = 0.0;
                 //READ(KR(1),304)YLAT,XLOG,ELEV,APM,CO2X,CNO3X,RFNX,X1,X2,SNO0,AZM  
                 /*       
                 !  1  WSA  = WATERSHED AREA(HA)                                                      
@@ -794,7 +798,7 @@ namespace Epic
                 ! 10  DTG  = TIME INTERVAL FOR GAS DIFF EQS (H)             
                 !     LINE 5  
                  */
-                double CHN, CHS, CHL, CHD;
+                double CHN = 0.0, CHS = 0.0, CHL = 0.0, CHD = 0.0;
                 //READ(KR(1),304)WSA,CHL,CHS,CHD,CHN,SN,UPSL,UPS,PEC,DTG                             
                 if (PARM.PEC < 1.0E-10) PARM.PEC = PEC0;
                 /*                                       
@@ -818,7 +822,7 @@ namespace Epic
                 !  9  IDFP = FERT # FOR AUTO P FERT--BLANK DEFAULTS TO ELEMENTAL P
                 !     LINE 6
                  */
-                int IDR0;
+                int IDR0=0;
                 //READ(KR(1),300)IRR,IRI,IFA,IFD,IDR0,IDF0,MNU,IMW,IDFP                               
                 Functions.AISPL(ref PARM.IRR, ref PARM.IAC);
                 PARM.CO2 = CO20;
@@ -941,7 +945,7 @@ namespace Epic
                     double W0 = 1.0E20;
                     while (true)
                     {
-                        double Y, X, ELEX;
+                        double Y = 0.0, X = 0.0, ELEX = 0.0;
                         //READ(KR(17),*,IOSTAT=NFL)II,OPSCFILE,Y,X,ELEX                                     
                         //if(NFL!=0) break;                                                                    
                         double RY = Y / PARM.CLT;
@@ -1125,7 +1129,7 @@ namespace Epic
                     {
                         if (PARM.RST[1, IW - 1, I - 1] < 1.0E-5 || PARM.RST[2, IW - 1, I - 1] < 1.0E-5) break;
                     }
-                    double REXP;
+                    double REXP=0.0;
                     if (I > 12)
                     {
                         PARM.ICDP = 0;
@@ -1136,13 +1140,13 @@ namespace Epic
                         SUM = 0.0;
                         for (I = 1; I <= 10000; I++)
                         {
-                            XX = Functions.AUNIF(ref PARM.IDG[2]);
+                            XX = Functions.AUNIF(PARM.IDG[2]);
                             SUM = SUM + Math.Pow((-Math.Log(XX)), PARM.EXPK);
                         }
                         REXP = 10100.0 / SUM;
                     }
                     PARM.BIG = 0.0;
-                    PARM.V3 = Functions.AUNIF(ref PARM.IDG[2]);
+                    PARM.V3 = Functions.AUNIF(PARM.IDG[2]);
 
                     for (I = 1; I <= 12; I++)
                     {
@@ -1186,10 +1190,10 @@ namespace Epic
                             double R6 = PARM.RFSK / 6.0;
                             for (J = 1; J <= 1000; J++)
                             {
-                                double V4 = Functions.AUNIF(ref PARM.IDG[2]);
+                                double V4 = Functions.AUNIF(PARM.IDG[2]);
                                 XX = Functions.ADSTN(ref PARM.V3, ref V4);
                                 PARM.V3 = V4;
-                                double R1 = Functions.WRAIN(ref R6, ref XX, ref PARM.RFSD, ref PARM.RFSK, ref PARM.RFVM);
+                                double R1 = Functions.WRAIN(R6, XX, PARM.RFSD, PARM.RFSK, PARM.RFVM);
                                 SUM = SUM + R1;
                             }
                             PARM.PCF[IW - 1, I - 1] = 1010.0 * PARM.RST[0, IW - 1, I - 1] / SUM;
@@ -1421,7 +1425,7 @@ namespace Epic
                 PARM.WDRM = PARM.HLMN;
                 if (PARM.HLMN < 11.0)
                 {
-                    Functions.ADAJ(ref PARM.NC, ref PARM.JDHU, ref PARM.JT1, 15, ref PARM.NYD);
+                    Functions.ADAJ(ref PARM.NC, ref PARM.JDHU, PARM.JT1, 15.0, (double)PARM.NYD);
                     PARM.WDRM = PARM.PRMT[5] + PARM.HLMN;
                 }
                 AAP = XYP[2];
@@ -1442,7 +1446,7 @@ namespace Epic
                     PARM.SMY[I - 1] = 0.0;
                     for (J = 1; J <= 100; J++)
                     {
-                        double RN2 = Functions.AUNIF(ref PARM.IDG[4]);
+                        double RN2 = Functions.AUNIF(PARM.IDG[4]);
                         double WV = PARM.UAVM[I - 1] * Math.Pow((-Math.Log(RN2)), PARM.UXP);
                         if (WV < PARM.PRMT[66]) continue;
                         double EV = 193.0 * Math.Exp(1.103 * (WV - 30.0) / (WV + 1.0));
@@ -1487,7 +1491,7 @@ namespace Epic
                     //WRITE(KW(1),'(/T10,A,F5.2)')'RAINFALL DIST IS EXP--PARM = ',EXPK             
                     //WRITE(KW(1),'(/T10,A,F5.3)')'WET-DRY PROB COEF = ',BTA                       
                 }
-                PARM.AHSM = Functions.CAHU(1, 365, 0.0, 1);
+                PARM.AHSM = Functions.CAHU(1, 365.0, 0.0, 1.0);
                 //WRITE(KW(1),221)SUM,AHSM                                                       
                 //WRITE(KW(1),'(//1X,A)')'-----WIND EROSION DATA'                                
                 //WRITE(KW(1),285)FL,FW,ANG0,UXP,DIAM,ACW                                        
@@ -1495,7 +1499,7 @@ namespace Epic
                 {
                     if (PARM.UAVM[0] > 0.0)
                     {
-                        Functions.AEXINT(ref PARM.UXP, ref SUM);
+                        Functions.AEXINT(ref PARM.UXP, out SUM);
                         PARM.UAVM[I - 1] = PARM.UAVM[I - 1] / SUM;
                     }
 
@@ -1700,7 +1704,7 @@ namespace Epic
                     for (J = 1; J <= 20; J++)
                     {
 
-                        int RN = Functions.AUNIF(21);
+                        int RN = (int)Functions.AUNIF(21);
                         II = 100 * PARM.IGN * RN;
                         for (KK = 1; KK <= II; KK++)
                         {
@@ -1715,10 +1719,10 @@ namespace Epic
                     PARM.IX0[J - 1] = PARM.IX[J - 1];
                 }
                 //WRITE(KW(1),297)IGN,(IX(IDG(I)),I=1,10),(IDG(I),I=1,10)                        
-                PARM.V3 = Functions.AUNIF(ref PARM.IDG[2]);
-                PARM.V1 = Functions.AUNIF(ref PARM.IDG[1]);
+                PARM.V3 = Functions.AUNIF(PARM.IDG[2]);
+                PARM.V1 = Functions.AUNIF(PARM.IDG[1]);
                 PARM.BIG = Math.Max(.2, PARM.PRMT[23]);
-                Functions.ADAJ(ref PARM.NC, ref PARM.IBD, ref PARM.IMO0, ref PARM.IDA0, ref PARM.NYD);
+                Functions.ADAJ(ref PARM.NC, ref PARM.IBD, PARM.IMO0, PARM.IDA0, PARM.NYD);
                 PARM.JDA = PARM.IBD;
                 PARM.MO = 1;
                 Functions.AXMON(ref PARM.IBD, ref PARM.MO);
@@ -1910,11 +1914,11 @@ namespace Epic
                     double DG = 1000.0 * (PARM.Z[J - 1] - XX);
                     PARM.OBC[J - 1] = 1000.0 * PARM.OBC[J - 1];
                     SOCF = SOCF + PARM.OBC[J - 1];
-                    Functions.SBDSC(ref PARM.BD[J - 1], ref PARM.PRMT[1], ref F, ref J, 1);
-                    Functions.SDST(ref PARM.RSD, ref DG, ref DG1, .01, .01, ref J, ref PARM.MSL);
-                    Functions.SDST(ref PARM.PKRZ, ref DG, ref DG, 20.0, .001, ref J, ref PARM.MSL);
-                    Functions.SDST(ref PARM.CNDS, ref DG, ref DG, 10.0, .001, ref J, ref PARM.MSL);
-                    Functions.SDST(ref PARM.EXCK, ref DG, ref DG, 10.0, .001, ref J, ref PARM.MSL);
+                    Functions.SBDSC(PARM.BD[J - 1], PARM.PRMT[1], ref F, J, 1);
+                    Functions.SDST(ref PARM.RSD, DG, DG1, .01, .01, J, PARM.MSL);
+                    Functions.SDST(ref PARM.PKRZ, DG, DG, 20.0, .001, J, PARM.MSL);
+                    Functions.SDST(ref PARM.CNDS, DG, DG, 10.0, .001, J, PARM.MSL);
+                    Functions.SDST(ref PARM.EXCK, DG, DG, 10.0, .001, J, PARM.MSL);
                     if (PARM.STFR[J - 1] < 1.0E-10) PARM.STFR[J - 1] = 1.0;
                     PARM.TRSD = PARM.TRSD + PARM.RSD[J - 1];
                     double ZD = .25 * (XX + PARM.Z[J - 1]);
@@ -2005,11 +2009,11 @@ namespace Epic
                         case 2:
                         case 6:
                             PARM.CEM[J - 1] = Math.Max(.1, PARM.CEC[J - 1] - 2.428 * X2 - 1.7 * ZZ);
-                            Functions.SWRTNB(ref PARM.CEM[J - 1], ref PARM.CLA[J - 1], ref X2, ref PARM.SAN[J - 1], ref PARM.U[J - 1], ref PARM.FC[J - 1], ZZ);
+                            Functions.SWRTNB(PARM.CEM[J - 1], PARM.CLA[J - 1], X2, PARM.SAN[J - 1], ref PARM.U[J - 1],ref PARM.FC[J - 1], ZZ);
                             break;
                         case 8:
                         case 9:
-                            Functions.SWNN(ref PARM.CLA[J - 1], ref PARM.SAN[J - 1], ref X2, ref PARM.U[J - 1], ref PARM.FC[J - 1]);
+                            Functions.SWNN(PARM.CLA[J - 1],PARM.SAN[J - 1], X2, ref PARM.U[J - 1], ref PARM.FC[J - 1]);
                             break;
                     }
                     if (PARM.ROK[J - 1] > 99.0) PARM.ROK[J - 1] = 90.0;
@@ -2220,7 +2224,7 @@ namespace Epic
                         PARM.LD1 = PARM.NBSL;
                         PARM.LORG[PARM.NBSL - 1] = 1;
                         double RTO = .01 / PARM.Z[0];
-                        Functions.SPLA(1, 1, ref PARM.NBSL, 0, ref RTO);
+                        Functions.SPLA(1, 1, PARM.NBSL, 0, RTO);
                         PARM.Z[PARM.NBSL - 1] = .01;
                     }
                 }
@@ -2251,7 +2255,7 @@ namespace Epic
                     L = PARM.LID[MXZ - 1];
                     L1 = PARM.LID[MXZ - 2];
                 lbl130: PARM.NBSL = PARM.NBSL + 1;
-                    Functions.SPLA(ref L, ref L1, ref PARM.NBSL, 1, .5);
+                    Functions.SPLA(L, L1, PARM.NBSL, 1, .5);
                     for (J = PARM.NBSL; J >= MXZ; J--)
                     {
                         PARM.LID[J - 1] = PARM.LID[J - 2];
@@ -2513,7 +2517,7 @@ namespace Epic
                         //WRITE(KW(I),592)WINDFILE                                                       
                         //WRITE(KW(I),592)SOILFILE                                                       
                         //WRITE(KW(I),592)OPSCFILE                                                       
-                        if (I == 14) Functions.SOCIOA(ref PARM.IYR0, 1, 1);
+                        if (I == 14) Functions.SOCIOA(PARM.IYR0, 1, 1);
                         if (I == 15) Functions.SOCIOD(1);
                     }
                 }
@@ -2790,16 +2794,16 @@ namespace Epic
                     PARM.LT[I - 1, J - 1] = PARM.NDT;
                     PARM.JH[I - 1, J - 1] = PARM.JX[5];
                     int IJ = PARM.LT[I - 1, J - 1];
-                    Functions.ADAJ(ref PARM.NC, ref PARM.ITL[I - 1, J - 1], ref PARM.JX[1], ref PARM.JX[2], 1);
+                    Functions.ADAJ(ref PARM.NC, ref PARM.ITL[I - 1, J - 1], PARM.JX[1], PARM.JX[2], 1);
                     X4 = PARM.TLD[IJ - 1] * 1000.0;
                     int I3 = PARM.IHC[IJ - 1];
                     if (IBGN < PARM.ITL[I - 1, J - 1]) goto lbl419;
                     if (IBGN == PARM.ITL[I - 1, J - 1]) goto lbl422;
                     double BASE;
-                    if (PARM.IGO > 0) PARM.HU[PARM.JJK - 1] = PARM.HU[PARM.JJK - 1] + Functions.CAHU(ref IBGN, 365, ref BASE, 0) / (PARM.PHU[PARM.JJK - 1, PARM.IHU[PARM.JJK - 1] - 1] + 1.0);
+                    if (PARM.IGO > 0) PARM.HU[PARM.JJK - 1] = PARM.HU[PARM.JJK - 1] + Functions.CAHU(IBGN, 365, BASE, 0) / (PARM.PHU[PARM.JJK - 1, PARM.IHU[PARM.JJK - 1] - 1] + 1.0);
                     IBGN = 1; ;
-                lbl419: if (PARM.IGO > 0) PARM.HU[PARM.JJK - 1] = PARM.HU[PARM.JJK - 1] + Functions.CAHU(ref IBGN, ref PARM.ITL[I - 1, J - 1], ref BASE, 0) / (PARM.PHU[PARM.JJK - 1, PARM.IHU[PARM.JJK - 1] - 1] + 1.0);
-                    HU0 = HU0 + Functions.CAHU(ref IBGN, ref PARM.ITL[I - 1, J - 1], 0.0, 1) / PARM.AHSM;
+                lbl419: if (PARM.IGO > 0) PARM.HU[PARM.JJK - 1] = PARM.HU[PARM.JJK - 1] + Functions.CAHU(IBGN,PARM.ITL[I - 1, J - 1],BASE, 0) / (PARM.PHU[PARM.JJK - 1, PARM.IHU[PARM.JJK - 1] - 1] + 1.0);
+                    HU0 = HU0 + Functions.CAHU(IBGN,PARM.ITL[I - 1, J - 1], 0.0, 1) / PARM.AHSM;
                     IBGN = PARM.ITL[I - 1, J - 1];
                 lbl422: if (PARM.OPV[6] > 0.0) goto lbl420;
                     if (PARM.IHUS == 0) goto lbl420;
@@ -2811,7 +2815,7 @@ namespace Epic
                     goto lbl421;
                 lbl420: PARM.HUSC[I - 1, J - 1] = PARM.OPV[6];
                     double JRT;
-                lbl421: Functions.INIFP(ref I3, ref I, ref J, ref JRT);
+                lbl421: Functions.INIFP(I3, I, J, (int)JRT);
                     X1 = Math.Max(0.0, PARM.COOP[IJ - 1]);
                     X2 = Math.Max(0.0, PARM.COTL[IJ - 1]);
                     //!     PRINTOUT OPERATION SCHEDULE                                                    
@@ -3151,13 +3155,13 @@ namespace Epic
                     PARM.IHU[I - 1] = 1;
                     X1 = Functions.ASPLT(ref PARM.DLAP[0, I - 1]) * .01;
                     X2 = Functions.ASPLT(ref PARM.DLAP[1, I - 1]) * .01;
-                    Functions.ASCRV(ref PARM.DLAP[0, I - 1], ref PARM.DLAP[1, I - 1], ref X1, ref X2);
+                    Functions.ASCRV(ref PARM.DLAP[0, I - 1], ref PARM.DLAP[1, I - 1], X1, X2);
                     X1 = Functions.ASPLT(ref PARM.FRST[0, I - 1]);
                     X2 = Functions.ASPLT(ref PARM.FRST[1, I - 1]);
-                    Functions.ASCRV(ref PARM.FRST[0, I - 1], ref PARM.FRST[1, I - 1], ref X1, ref X2);
+                    Functions.ASCRV(ref PARM.FRST[0, I - 1], ref PARM.FRST[1, I - 1], X1, X2);
                     PARM.WAC2[0, I - 1] = PARM.WA[I - 1] * .01;
                     X2 = Functions.ASPLT(ref PARM.WAC2[1, I - 1]);
-                    Functions.ASCRV(ref PARM.WAC2[0, I - 1], ref PARM.WAC2[1, I - 1], 330.0, ref X2);
+                    Functions.ASCRV(ref PARM.WAC2[0, I - 1], ref PARM.WAC2[1, I - 1], 330.0, X2);
                     X2 = Functions.ASPLT(ref PARM.VPD2[I - 1]);
                     PARM.VPD2[I - 1] = (1.0 - PARM.VPD2[I - 1]) / (X2 - PARM.VPTH[I - 1]);
                     PARM.UNA[I - 1] = PARM.PRMT[38] * PARM.BN[2, I - 1] * PARM.WA[I - 1] * PARM.PRMT[27];
@@ -3344,12 +3348,14 @@ namespace Epic
                 Functions.SCONT(1);                                                                          
                 //WRITE(KW(1),'(/T10,A,F7.1,A)')'ERODED SOIL THICKNESS = ',THK,' mm'             
                 //WRITE(KW(1),'(/T10,A,F7.2,A)')'FINAL WATER CONTENT OF SNOW = ',SNO,' mm'                                                                         
-                //!     PRINTOUT WATER BALANCE                                                         
-                Functions.HSWBL(ref PARM.SM[3], ref PARM.SM[13], ref PARM.SM[10], ref PARM.SM[15], ref PARM.SM[16], ref PARM.SM[18], ref PARM.SNO, ref PARM.SW, SWW, ref PARM.SM[19], ref PARM.SM[83], ref PARM.KW, ref PARM.MSO);                                                          
+                //!     PRINTOUT WATER BALANCE       
+                //Paul Cain's Note: The line below is commented out until we decide how to handle file IO                                      
+                //Functions.HSWBL(ref PARM.SM[3], ref PARM.SM[13], ref PARM.SM[10], ref PARM.SM[15], ref PARM.SM[16], ref PARM.SM[18], ref PARM.SNO, ref PARM.SW, SWW, ref PARM.SM[19], ref PARM.SM[83], ref PARM.KW, ref PARM.MSO);                                                          
                 if (PARM.IRR == 4)
                 {
                     PARM.VLG = .1 * PARM.VLG / (PARM.DALG + 1.0E-10);
-                    Functions.HLGB(ref PARM.SM[22],ref PARM.SM[20],ref PARM.SM[23],ref PARM.SM[77],ref PARM.VLG,ref VLGB,ref PARM.SM[21],ref PARM.KW,ref PARM.MSO);                
+                    //Paul Cain's Note: The line below is commented out until we decide how to handle file IO   
+                    //Functions.HLGB(ref PARM.SM[22],ref PARM.SM[20],ref PARM.SM[23],ref PARM.SM[77],ref PARM.VLG,ref VLGB,ref PARM.SM[21],ref PARM.KW,ref PARM.MSO);                
                     Functions.NLGB(ref PARM.SM[78],ref PARM.SM[79],ref WTMB,ref PARM.WTMU,ref PARM.KW,ref PARM.MSO);                                    
                 }
                 PARM.RNO3 = PARM.SM[3] * PARM.RFNC;
@@ -3366,19 +3372,24 @@ namespace Epic
                 }
             //TODO:
                 double FTN = PARM.TNO2 + PARM.TNO3 + PARM.TWN + AD1 + PARM.STDON + SUM + PARM.TNH3;
-                Functions.NBL(ref PARM.BTN, ref PARM.RNO3, ref PARM.SM[42], ref PARM.SM[43], ref PARM.SM[44], ref PARM.SM[45], ref PARM.SM[48], ref PARM.SM[58], ref PARM.TYN, ref PARM.SM[51], ref PARM.SM[59], ref PARM.SM[60], ref PARM.SM[49], ref PARM.SM[97], FTN, 1, ref PARM.KW, ref PARM.MSO);                                      
+                //Paul Cain's Note: The line below is commented out until we decide how to handle file IO       
+                //Functions.NBL(ref PARM.BTN, ref PARM.RNO3, ref PARM.SM[42], ref PARM.SM[43], ref PARM.SM[44], ref PARM.SM[45], ref PARM.SM[48], ref PARM.SM[58], ref PARM.TYN, ref PARM.SM[51], ref PARM.SM[59], ref PARM.SM[60], ref PARM.SM[49], ref PARM.SM[97], FTN, 1, ref PARM.KW, ref PARM.MSO);                                      
                 //WRITE(KW(1),636)TNO2,TNO3,TNH3,TWN,AD1,STDON,SUM
                 PARM.PLCX = 1000.0 * PARM.PLCX;
                 PARM.DPLC = 1000.0 * PARM.DPLC;
-                Functions.NCBL(BTC, ref PARM.SM[76], ref PARM.SM[74], ref PARM.SM[75], ref PARM.SM[73], ref PARM.SM[64], ref PARM.SM[72], ref PARM.SM[96], ref PARM.DPLC, ref PARM.PLCX, ref PARM.TOC, ref PARM.KW, ref PARM.MSO);
+                //Paul Cain's Note: The line below is commented out until we decide how to handle file IO       
+                //Functions.NCBL(BTC, ref PARM.SM[76], ref PARM.SM[74], ref PARM.SM[75], ref PARM.SM[73], ref PARM.SM[64], ref PARM.SM[72], ref PARM.SM[96], ref PARM.DPLC, ref PARM.PLCX, ref PARM.TOC, ref PARM.KW, ref PARM.MSO);
                 //WRITE(KW(1),637)ZLSC,ZLMC,ZBMC,ZHSC,ZHPC                                     
                 double FTP = PARM.TAP + PARM.TOP + PARM.TMP + PARM.TP + PARM.TFOP + PARM.STDP + PARM.STDOP + TOT;
-                Functions.NBL(ref PARM.BTP,0.0, ref PARM.SM[53], ref PARM.SM[54],0.0, ref PARM.SM[56],0.0, ref PARM.SM[61], ref PARM.TYP,0.0, ref PARM.SM[62],0.0,0.0,0.0,FTP,2, ref PARM.KW, ref PARM.MSO);                                                            
+                //Paul Cain's Note: The line below is commented out until we decide how to handle file IO       
+                //Functions.NBL(ref PARM.BTP,0.0, ref PARM.SM[53], ref PARM.SM[54],0.0, ref PARM.SM[56],0.0, ref PARM.SM[61], ref PARM.TYP,0.0, ref PARM.SM[62],0.0,0.0,0.0,FTP,2, ref PARM.KW, ref PARM.MSO);                                                            
                 //WRITE(KW(1),638)TAP,TOP,TMP,TP,TFOP,STDP,STDOP,TOT                             
                 double FTK = PARM.TSK + PARM.TEK + PARM.TFK + PARM.STDK + PARM.STDOK + ADD;
-                Functions.NBL(ref PARM.BTK,0.0, ref PARM.SM[77], ref PARM.SM[78], ref PARM.SM[79], ref PARM.SM[80],0.0,0.0, ref PARM.TYK,0.0, ref PARM.SM[63],0.0,0.0,0.0,FTK,3, ref PARM.KW, ref PARM.MSO);                                                            
+                //Paul Cain's Note: The line below is commented out until we decide how to handle file IO       
+                //Functions.NBL(ref PARM.BTK,0.0, ref PARM.SM[77], ref PARM.SM[78], ref PARM.SM[79], ref PARM.SM[80],0.0,0.0, ref PARM.TYK,0.0, ref PARM.SM[63],0.0,0.0,0.0,FTK,3, ref PARM.KW, ref PARM.MSO);                                                            
                 //WRITE(KW(1),639)TSK,TEK,TFK,STDK,STDOK,ADD                                     
-                Functions.SLTB(ref PARM.SM[68], ref PARM.SM[71], ref PARM.SM[81], ref PARM.SM[70], ref PARM.SM[69], ref PARM.SLT0, ref PARM.TSLT, ref PARM.KW, ref PARM.MSO);                
+                //Paul Cain's Note: The line below is commented out until we decide how to handle file IO
+                //Functions.SLTB(ref PARM.SM[68], ref PARM.SM[71], ref PARM.SM[81], ref PARM.SM[70], ref PARM.SM[69], ref PARM.SLT0, ref PARM.TSLT, ref PARM.KW, ref PARM.MSO);                
                 int XQP = PARM.NQP;
                 int XCN = PARM.JCN;
                 XX = XQP + .01;
@@ -3488,7 +3499,7 @@ namespace Epic
                             PARM.APQ[I - 1, K - 1, J - 1] = 0.0;
                             PARM.AQB[I - 1, K - 1, J - 1] = 0.0;
                         }
-                        Functions.ASORT1(ref XTP,ref PARM.NX,ref PARM.NBYR);                                                       
+                        Functions.ASORT1(ref XTP,ref PARM.NX,ref PARM.NBYR);
                         NXX[0, I - 1] = PARM.NX[(int)NY[0] - 1];
                         NXX[1, I - 1] = PARM.NX[(int)NY[1] - 1];
                         NXX[2, I - 1] = PARM.NX[(int)NY[2] - 1];
@@ -3538,7 +3549,7 @@ namespace Epic
                 for (K = K2; K <= N1; K++)
                 {
                     PPX[I - 1] = PARM.SMAP[1, K - 1];
-                    Functions.ACOUT(ref PPX[I - 1], ref PARM.SM[13], 1.0);                                                
+                    Functions.ACOUT(ref PPX[I - 1], PARM.SM[13], 1.0);                                                
                     I = I + 1;
                 }
                 //WRITE(KW(1),387)HEDP(2),(PPX(I),I=1,N2)                                        
@@ -3546,7 +3557,7 @@ namespace Epic
                 for (K = K2; K <= N1; K++)
                 {
                     PPX[I - 1] = PARM.SMAP[2, K - 1];
-                    Functions.ACOUT(ref PPX[I - 1], ref PARM.SM[16],1.0);                                                 
+                    Functions.ACOUT(ref PPX[I - 1], PARM.SM[16],1.0);                                                 
                     I = I + 1;
                 }
                 //WRITE(KW(1),387)HEDP(3),(PPX(I),I=1,N2)                                        
@@ -3554,7 +3565,7 @@ namespace Epic
                 for (K = K2; K <= N1; K++)
                 {
                     PPX[I - 1] = PARM.SMAP[3, K - 1];
-                    Functions.ACOUT(ref PPX[I - 1], ref PARM.SM[15],1.0);                                                 
+                    Functions.ACOUT(ref PPX[I - 1], PARM.SM[15],1.0);                                                 
                     I = I + 1;
                 }
                 //WRITE(KW(1),387)HEDP(4),(PPX(I),I=1,N2)                                        
@@ -3566,7 +3577,7 @@ namespace Epic
                 for (K = K2; K <= N1; K++)
                 {
                     PPX[I - 1] = PARM.SMAP[9, K - 1];
-                    Functions.ACOUT(ref PPX[I - 1], ref PARM.SM[17],1.0);                                                 
+                    Functions.ACOUT(ref PPX[I - 1], PARM.SM[17],1.0);                                                 
                     I = I + 1;
                 }
                 //WRITE(KW(1),387)HEDP(10),(PPX(I),I=1,N2)                                       
@@ -3585,10 +3596,10 @@ namespace Epic
                 PPX[3] = PARM.SM[54];
                 if (PARM.MASP > 0)
                 {
-                    Functions.ACOUT(ref PPX[0], ref PARM.SM[13],1000.0);                                              
-                    Functions.ACOUT(ref PPX[1], ref PARM.SM[15],1000.0);                                              
-                    Functions.ACOUT(ref PPX[2], ref PARM.SM[16],1000.0);                                              
-                    Functions.ACOUT(ref PPX[3], ref PARM.SM[13],1000.0);                                              
+                    Functions.ACOUT(ref PPX[0], PARM.SM[13],1000.0);                                              
+                    Functions.ACOUT(ref PPX[1], PARM.SM[15],1000.0);                                              
+                    Functions.ACOUT(ref PPX[2], PARM.SM[16],1000.0);                                              
+                    Functions.ACOUT(ref PPX[3], PARM.SM[13],1000.0);                                              
                 }
                 PARM.TYN = PARM.TYN / XYR;
                 PARM.TYP = PARM.TYP / XYR;

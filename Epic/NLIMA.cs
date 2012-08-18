@@ -10,9 +10,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/10/2012
      */
-    public class NLIMA
+    public partial class Functions
     {
-        public NLIMA(ref double SB, double DSB, ref double C1, ref double PH, ref double ALS, ref double OC, ref double BSA)
+        public static void NLIMA(ref double SB, ref double DSB, ref double C1, ref double PH, ref double ALS, ref double OC, ref double BSA)
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 

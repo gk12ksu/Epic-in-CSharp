@@ -12,9 +12,9 @@ namespace Epic
      * This file had its gotos removed
      * Last Modified On 7/10/2012
      */
-    public class NFERT
+    public partial class Functions
     {
-        public NFERT(ref int IRC, ref int JFT)
+        public static void NFERT(ref int IRC, ref int JFT)
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 
@@ -62,7 +62,7 @@ namespace Epic
             }
             if (skip == false)
             {
-                for (int J = 1; J < PARM.NBSL; J++)
+                for (int J = 1; J <= PARM.NBSL; J++)
                 {
                     I = PARM.LID[J - 1];
                     if (ZFT < PARM.Z[I - 1])

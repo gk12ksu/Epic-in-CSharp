@@ -1,10 +1,10 @@
 using System;
 
-namespace Application
+namespace Epic
 {
-	public class SPRNT
+	public partial class Functions
 	{
-		public SPRNT (ref double[] YTP)
+		public static void SPRNT (ref double[] YTP)
 		{
             // EPICv0810
 			// Translated by Brian Cain
@@ -13,6 +13,11 @@ namespace Application
 			
 			// The fortran file uses global variables, refer to MODPARAM.cs for
 			// a list of all global variables
+
+            /* ADDITIONAL CHANGE
+             * 8/17/2012    Modified by Paul Cain to make it part of the Functions partial class
+             *              and changed the namespace to Epic.
+             */
 			
 			Epic.MODPARAM PARM  =  Epic.MODPARAM.Instance;
 

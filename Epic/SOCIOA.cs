@@ -2,9 +2,9 @@ using System;
 
 namespace Epic
 {
-	public class SOCIOA
+	public partial class Functions
 	{
-		public SOCIOA ()
+		public static void SOCIOA (int IYR1,int MZ,int KK)
 		{
 			// EPICv0810
 			// Translated by Brian Cain
@@ -12,6 +12,11 @@ namespace Epic
 			
 			// The fortran file uses global variables, refer to MODPARAM.cs for
 			// a list of all global variables
+
+            /* ADDITIONAL CHANGE
+             * 8/17/2012    Modified by Paul Cain to make it part of the Functions partial class
+             *              and added paramaters.
+             */
 			
 			Epic.MODPARAM PARM  =  Epic.MODPARAM.Instance;
 			

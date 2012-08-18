@@ -2,13 +2,17 @@ using System;
 
 namespace Epic
 {
-	public class GETCL
+	public partial class Functions
 	{
-		public GETCL (ref double[] KW, ref double[] CM)
+		public static void GETCL (ref double[] KW, ref double[] CM)
 		{
             // EPICv0810
 			// Translated by Brian Cain
             // This command line routine for Microsoft/UNIX/SALFORD
+
+            /* ADDITIONAL CHANGE
+            * 8/16/2012    Modified by Paul Cain to make it part of the Functions partial class
+            */
             
             string CM_str;
             KW = new double[200];

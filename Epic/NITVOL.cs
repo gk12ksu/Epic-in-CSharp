@@ -11,9 +11,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/10/2012
      */
-    public class NITVOL
+    public partial class Functions
     {
-        public NITVOL(ref double Z5)
+        public static void NITVOL(ref double Z5)
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 //!     AD1=WNO3(PARM.ISL)+WNH3(PARM.ISL)

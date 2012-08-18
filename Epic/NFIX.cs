@@ -10,9 +10,9 @@ namespace Epic
      * This file has had its goto statements removed.
      * Last Modified On 7/11/2012
      */
-    public class NFIX
+    public partial class Functions
     {
-        public NFIX()
+        public static void NFIX()
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 
@@ -23,7 +23,7 @@ namespace Epic
                 double ADD = 0.0;
                 double RTO;
                 int J, L1;
-                for (J = 1; J < PARM.NBSL; J++)
+                for (J = 1; J <= PARM.NBSL; J++)
                 {
                     PARM.ISL = PARM.LID[J - 1];
                     if (PARM.Z[PARM.ISL - 1] > .3)
@@ -44,7 +44,7 @@ namespace Epic
                 if (!(X1 <= .25))
                 {
 
-                    for (J = 1; J < PARM.NBSL; J++)
+                    for (J = 1; J <= PARM.NBSL; J++)
                     {
                         PARM.ISL = PARM.LID[J - 1];
                         if (PARM.Z[PARM.ISL - 1] > PARM.RD[PARM.JJK - 1])

@@ -10,9 +10,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/10/2012
      */
-    public class NYPA
+    public partial class Functions
     {
-        public NYPA()
+        public static void NYPA()
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 

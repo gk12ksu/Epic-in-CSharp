@@ -4,7 +4,13 @@ namespace Epic
 {
 	public partial class Functions
 	{
-		public static double AXMON (ref double JDX, ref double MOX)
+        /* ADDITIONAL CHANGE
+           * 8/16/2012    Modified by Paul Cain by changing some of the data 
+           *              types to make it compatible with 
+           *              a call to it in Main.
+           */
+
+		public static void AXMON (ref int JDX, ref int MOX)
 		{
 			// EPICv0810
 			// Translated by Brian Cain
@@ -18,15 +24,15 @@ namespace Epic
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 			
 			if (JDX > PARM.NC[2]){
-				double M = MOX;
+				int M = MOX;
 				for (MOX = M; MOX < 12; MOX++){
-					int M1 = (int)MOX+1;
-					double NDA = PARM.NC[M1]-PARM.NYD;
-					if (JDX <= NDA) return NDA;
+					int M1 = MOX+1;
+					int NDA = PARM.NC[M1]-PARM.NYD;
+					if (JDX <= NDA) return;
 				}
 			}
 			MOX = 1;
-			return 0.0;
+			return;
 		}
 	}
 }

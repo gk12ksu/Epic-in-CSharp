@@ -11,16 +11,16 @@ namespace Epic
      * This file has had its go to statements removed
      * Last Modified On 7/8/2012
      */
-    public class NCONC
+    public partial class Functions
     {
-        public NCONC(ref double P0, ref double P5, ref double P1, ref double A)
+        public static void NCONC(ref double P0, ref double P5, ref double P1, ref double A)
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 
             A = 5.0;
             double EA = 0.0, EA1 = 0.0;
             bool CONVERGED = false;
-            for (int I = 1; I < 10; I++)
+            for (int I = 1; I <= 10; I++)
             {
                 double A5 = A * .5;
                 EA = Math.Exp(A);

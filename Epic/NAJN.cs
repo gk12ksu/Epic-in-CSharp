@@ -11,9 +11,9 @@ namespace Epic
      * GO TO statements removed
      * Last Modified On 7/8/2012
      */
-    public class NAJN
+    public partial class Functions
     {
-        public NAJN(ref double[] UU, ref double[] AN, ref double DMD, ref double SUPL, ref double AJF, ref double IAJ)
+        public static void NAJN(ref double[] UU, ref double[] AN, ref double DMD, ref double SUPL, ref double AJF, ref double IAJ)
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
             double SUM, X2;
@@ -24,7 +24,7 @@ namespace Epic
                 X2 = DMD / (SUPL + Math.Pow(10, -20));
                 if (!(X2 > 1.0 || DMD < 0.0))
                 {
-                    for (int J = 1; J < PARM.LRD; J++)
+                    for (int J = 1; J <= PARM.LRD; J++)
                     {
                         int K = PARM.LID[J - 1];
                         UU[K - 1] = UU[K - 1] * X2;
@@ -37,7 +37,7 @@ namespace Epic
 
             X2 = AJF * (DMD - SUPL);
             double X21 = X2;
-            for (int J = 1; J < PARM.LRD; J++)
+            for (int J = 1; J <= PARM.LRD; J++)
             {
                 int K = PARM.LID[J - 1];
                 double XX = UU[K - 1] + X2;

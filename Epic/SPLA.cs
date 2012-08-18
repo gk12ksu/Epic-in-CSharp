@@ -2,9 +2,9 @@ using System;
 
 namespace Epic
 {
-	public class SPLA
+	public partial class Functions
 	{
-		public SPLA (ref int I, ref int I1, ref int K, ref int L, ref double RTO)
+		public static void SPLA (int I, int I1, int K, int L, double RTO)
 		{
             // EPICv0810
 			// Translated by Brian Cain
@@ -12,6 +12,13 @@ namespace Epic
 			
 			// The fortran file uses global variables, refer to MODPARAM.cs for
 			// a list of all global variables
+
+            /* ADDITIONAL CHANGE
+             * 8/17/2012    Modified by Paul Cain to make it part of the Functions partial class
+             *              and changed whether some paramters are pass-by-reference so that only 
+             *              the parameters that are actually modified are declared as pass-by-
+             *              reference.
+             */
 			
 			Epic.MODPARAM PARM  =  Epic.MODPARAM.Instance;
 

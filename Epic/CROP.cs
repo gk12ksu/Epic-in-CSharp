@@ -31,8 +31,7 @@ namespace Epic
 			}
 			else{
 				X2 = X2 * PARM.WA[PARM.JJK];
-				// There is no def for ASVP
-				double VPDX = 0.0; //.67*(PARM.ASVP[TMX+273]-PARM.RHD*PARM.ASVP(PARM.TX+273.0));
+				double VPDX = .67*(PARM.ASVP[TMX+273]-PARM.RHD*PARM.ASVP(PARM.TX+273.0));
 				double X3 = .01*PARM.WUB[PARM.JJK]*Math.Pow (VPDX, -.5);
 				double X4 = PARM.SU*X3;
 				PARM.DDM[PARM.JJK] = Math.Min (X2, X4);

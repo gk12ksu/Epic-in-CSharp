@@ -2,9 +2,9 @@ using System;
 
 namespace Epic
 {
-	public class WIGV
+	public partial class Functions
 	{
-		public WIGV ()
+		public static void WIGV ()
 		{
 			// EPICv0810
 			// Translated by Emily Jordan
@@ -14,6 +14,10 @@ namespace Epic
 			
 			// The fortran file uses global variables, refer to MODPARAM.cs for
 			// a list of all global variables
+
+            /* ADDITIONAL CHANGE
+            * 8/16/2012    Modified by Paul Cain to make it part of the Functions partial class
+            */
 			
 			// USE PARM
             Epic.MODPARAM PARM  =  Epic.MODPARAM.Instance;

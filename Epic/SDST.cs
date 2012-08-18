@@ -2,13 +2,19 @@ using System;
 
 namespace Epic
 {
-	public class SDST
+	public partial class Functions
 	{
-		public SDST (ref double[] X, ref double DG, ref double DG1, ref double X1, ref double X2, ref int I, ref int ISL)
+		public static void SDST (ref double[] X, double DG, double DG1, double X1, double X2, int I, int ISL)
 		{
             // EPICv0810
 		    // Translated by Brian Cain
             // This program has no description
+
+            /* ADDITIONAL CHANGE
+             * 8/16/2012    Modified by Paul Cain to make it part of the Functions partial class
+             *              and change some parameters types to make it compatible with a function 
+             *              call in Main.
+             */
 
             X = new double[ISL];
 			double RTO;

@@ -10,16 +10,16 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/10/2012
      */
-    public class NFALL
+    public partial class Functions
     {
-        public NFALL(ref double ZZ)
+        public static void NFALL(ref double ZZ)
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 
             double SUM = 0.0;
             double TOT = 0.0;
             double ZS;
-            for (int K = 1; K < PARM.LC; K++)
+            for (int K = 1; K <= PARM.LC; K++)
             {
                 if (PARM.STD[K - 1] < .001)
                     continue;
@@ -46,7 +46,7 @@ namespace Epic
             ZS = ZZ * PARM.STDON;
             TOT = TOT + ZS;
 
-            Epic.NCNSTD(SUM, TOT, 0);
+            Functions.NCNSTD(SUM, TOT, 0);
 
             PARM.STDON = Math.Max(1.0E-5, PARM.STDON - ZS);
             ZS = ZZ * PARM.STDOP;

@@ -12,15 +12,15 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/10/2012
      */
-    public class NPCY
+    public partial class Functions
     {
-        public NPCY()
+        public static void NPCY()
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 
             double STDX = 0.0;
 
-            for (int K = 1; K < PARM.LC; K++)
+            for (int K = 1; K <= PARM.LC; K++)
             {
                 STDX = STDX + PARM.STD[K - 1];
             }
@@ -39,7 +39,7 @@ namespace Epic
             double XX = 0.0;
             PARM.SSO3[PARM.LD1 - 1] = 0.0;
 
-            for (int J = 1; J < PARM.NBSL; J++)
+            for (int J = 1; J <= PARM.NBSL; J++)
             {
                 PARM.ISL = PARM.LID[J - 1];
                 PARM.RSPC[PARM.ISL - 1] = 0.0;

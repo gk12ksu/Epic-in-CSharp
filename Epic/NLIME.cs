@@ -13,26 +13,22 @@ namespace Epic
      * This file has had its gotos statements removed.
      * Last Modified On 7/10/2012
      */
-
-    /* ADDITIONAL CHANGE
-     * 7/31/2012    Modified by Paul Cain to fix build errors
-     */
-    public class NLIME
+    public partial class Functions
     {
-        private static MODPARAM PARM = MODPARAM.Instance;
+        public static void NPMIN()
+        {
+            Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 
-        public NLIME()
-        {      
             double SMFN = 0.0;
             double OC = 0.0;
             double TOT = 0.0;
             double XZ = 0.0;
             double ZZ = 0.0;
             double XX = 0.0;
-            double XY, X1, RTO=0.0, W2=.00, W3=0.0;
+            double XY, X1, RTO, W2, W3;
             int J;
             bool skip = false;
-            for (J = 1; J < PARM.NBSL; J++)
+            for (J = 1; J <= PARM.NBSL; J++)
             {
                 PARM.ISL = PARM.LID[J - 1];
                 if (PARM.Z[PARM.ISL - 1] > PARM.BIG)
@@ -76,10 +72,10 @@ namespace Epic
             double BS = 100.0 / XZ;
             TOT = TOT - .05 * DSB * BS;
 
-            double ALSX=0, BSA=0, DBS;
-            new NLIMA(ref ZZ, DSB, ref BS, ref TOT, ref ALSX, ref OC, ref BSA);
+            double ALSX, BSA, DBS;
+            Epic.NLIMA(ZZ, DSB, BS, TOT, ref ALSX, OC, ref BSA);
             skip = false;
-            double ALN=0.0, PHN=0.0;
+            double ALN, PHN;
 
             if (TOT > 6.5)
             {
@@ -104,7 +100,7 @@ namespace Epic
                 else
                 {
                     TOT = 5.4;
-                    new NLIMA(ref ZZ, (-1*EAL), ref BS, ref TOT, ref ALSX, ref OC, ref BSA);
+                    Epic.NLIMA(ZZ, -EAL, BS, TOT, ref ALSX, OC, ref BSA);
                     ALN = ALSX;
                     PHN = TOT;
                     BSA = ZZ;
@@ -145,7 +141,7 @@ namespace Epic
             }
 
 
-            for (int K = 1; K < J; K++)
+            for (int K = 1; K <= J; K++)
             {
                 PARM.ISL = PARM.LID[K - 1];
                 TOT = PARM.SMB[PARM.ISL - 1];

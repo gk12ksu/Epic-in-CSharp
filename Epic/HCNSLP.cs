@@ -2,9 +2,9 @@ using System;
 
 namespace Epic
 {
-	public class HCNSLP
+	public partial class Functions
 	{
-		public HCNSLP (ref double CNII, ref double X1)
+		public static void HCNSLP (ref double CNII, ref double X1)
 		{
             // EPICv0810
 			// Translated by Brian Cain
@@ -13,6 +13,10 @@ namespace Epic
 			
 			// The fortran file uses global variables, refer to MODPARAM.cs for
 			// a list of all global variables
+
+            /* ADDITIONAL CHANGE
+             * 8/17/2012    Modified by Paul Cain to make it part of the Functions partial class
+             */
 			
 			Epic.MODPARAM PARM  =  Epic.MODPARAM.Instance;
             

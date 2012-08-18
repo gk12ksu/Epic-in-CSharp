@@ -11,9 +11,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/10/2012
      */
-    public class NPMIN
+    public partial class Functions
     {
-        public NPMIN()
+        public static void NPMIN()
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 

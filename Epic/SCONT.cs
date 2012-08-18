@@ -2,11 +2,9 @@ using System;
 
 namespace Epic
 {
-	public class SCONT
+	public partial class Functions
 	{
-        private static MODPARAM PARM = MODPARAM.Instance;
-
-		public SCONT (double KWX)
+		public static void SCONT (double KWX)
 		{
 		
       //SUBROUTINE SCONT(KWX)
@@ -15,6 +13,13 @@ namespace Epic
       //USE PARM
        
       //Modified by Paul Cain on 7/30/2012 to fix build errors.
+
+    /* ADDITIONAL CHANGE
+     * 8/17/2012    Modified by Paul Cain to make it part of the Functions partial class
+     *              and made PARM a method variable instead of a class variable
+     */
+
+      MODPARAM PARM = MODPARAM.Instance;
 
       double[] ATX = new double[4];
       double[] SWZ = new double[4];

@@ -2,9 +2,11 @@ using System;
 
 namespace Epic
 {
-    public class WRMX
+    public partial class Functions
     {
-        public WRMX()
+        private static MODPARAM PARM = MODPARAM.Instance;
+
+        public static void WRMX()
         {
             //EPICv0810
             //Translated by Emily Jordan
@@ -13,7 +15,10 @@ namespace Epic
             // The fortran file uses global variables, refer to MODPARAM.cs for
 			// a list of all global variables
 
-            //Needs PARAM file still.
+            /* ADDITIONAL CHANGE
+            * 8/16/2012    Modified by Paul Cain to make it part of the Functions partial class
+            *              and added reference to MODPARM. 
+            */
 
             double XI = PARM.JDA;   //I think XI is a local variable, so I made it a double.
             double SD = .4102 * Math.Sin((XI - 80.25)/PARM.PIT); //SD is also a local variable.

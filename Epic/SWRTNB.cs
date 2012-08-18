@@ -2,11 +2,11 @@ using System;
 
 namespace Epic
 {
-	public class SWRTNB
+	public partial class Functions
 	{
         private static MODPARAM PARM = MODPARAM.Instance;
 
-		public SWRTNB (double CM, double CL, double OC, double SA, double WC15, double WC3RD, double ZZ)
+		public static void SWRTNB (double CM, double CL, double OC, double SA, ref double WC15, ref double WC3RD, double ZZ)
 		{
     //     SUBROUTINE SWRTNB(CM,CL,OC,SA,WC15,WC3RD,ZZ)
     //     EPIC0810
@@ -15,6 +15,13 @@ namespace Epic
             /* ADDITIONAL CHANGE
             * 8/1/2012    Modified by Paul Cain to fix build errors
             */
+
+            /* ADDITIONAL CHANGE
+             * 8/17/2012    Modified by Paul Cain to make it part of the Functions partial class
+             *              and changed whether some paramters are pass-by-reference so that only 
+             *              the parameters that are actually modified are declared as pass-by-
+             *              reference.
+             */
 
     //     THIS FORTRAN SUBPROGRAM TRANSLATED INTO C# USES OTTO BAUMER'S METHOD FOR ESTIMATING SOIL
     //     WATER CONTENT AT 33 AND 1500 kpa.

@@ -11,9 +11,9 @@ namespace Epic
      * This file has had its goto statements removed
      * Last Modified On 7/8/2012
      */
-    public class NCNMI
+    public partial class Functions
     {
-        public NCNMI(ref double Z5, ref double CS)
+        public static void NCNMI(ref double Z5, ref double CS)
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 

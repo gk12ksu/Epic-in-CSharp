@@ -2,9 +2,9 @@ using System;
 
 namespace Epic
 {
-	public class SPOFC
+	public partial class Functions
 	{
-		public SPOFC (ref int I)
+		public static void SPOFC (ref int I)
 		{
             // EPICv0810
 			// Translated by Brian Cain
@@ -12,6 +12,10 @@ namespace Epic
 			
 			// The fortran file uses global variables, refer to MODPARAM.cs for
 			// a list of all global variables
+
+            /* ADDITIONAL CHANGE
+           * 8/16/2012    Modified by Paul Cain to make it part of the Functions partial class
+           */
 			
 			Epic.MODPARAM PARM  =  Epic.MODPARAM.Instance;
 

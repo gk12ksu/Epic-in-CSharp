@@ -3,9 +3,9 @@ using System;
 
 namespace Epic
 {
-	class acout
+	public partial class Functions
 	{
-		public acout(ref double XX, ref double QQ, ref double GKG)
+		public static void ACOUT (ref double XX, double QQ, double GKG)
 		{
 			// EPIC0810
 			// Translated by Brian Cain
@@ -13,7 +13,14 @@ namespace Epic
 			// Documentation on what this file is actually doing is needed
 			// 1.D-4, 1.D-3, 1.D3 means double precision
 			// 1.D-4 == 1*10^-4 .... ect
-			double X1, X2, X3, XI;
+
+            /* ADDITIONAL CHANGE
+             * 8/17/2012    Modified by Paul Cain to make it part of the Functions partial class
+             *              and to make only the parameters that need to be pass-by-reference marked 
+             *              as pass by reference.
+             */
+
+            double X1, X2, X3, XI;
 		
 			if (XX < (1*Math.Pow(10,-10))) return;
 		

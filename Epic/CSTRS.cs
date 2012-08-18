@@ -29,7 +29,7 @@ namespace Epic
 				else{
 					PARM.WS = 0;
 				}
-				//PARM.WS = (1-PARM.PRMT[34])*PARM.WP+PARM.PRMT(34)*PARM.SU/(PARM.EP[PARM.JJK]+1*Math.Pow (10, -10));
+				PARM.WS = (1-PARM.PRMT[34])*PARM.WP+PARM.PRMT(34)*PARM.SU/(PARM.EP[PARM.JJK]+1*Math.Pow (10, -10));
 			}
 			PARM.VARC[12, PARM.JJK] = PARM.WS;
 			PARM.WFX = 0;

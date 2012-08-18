@@ -2,9 +2,9 @@ using System;
 
 namespace Epic
 {
-	public class SBDSC
+	public partial class Functions
 	{
-		public SBDSC (ref double X1, ref double X3, ref double F, ref int J, ref double II)
+		public static void SBDSC (double X1, double X3, ref double F, int J, double II)
 		{
             // EPICv0810
 			// Translated by Brian Cain
@@ -13,6 +13,10 @@ namespace Epic
 			
 			// The fortran file uses global variables, refer to MODPARAM.cs for
 			// a list of all global variables
+
+            /* ADDITIONAL CHANGE
+             * 8/16/2012    Modified by Paul Cain to make it part of the Functions partial class
+             */
 			
 			Epic.MODPARAM PARM  =  Epic.MODPARAM.Instance;
 

@@ -2,11 +2,11 @@
 
 namespace Epic
 {
-    public class INIFP
+    public partial class Functions
     {
         private static MODPARAM PARM = MODPARAM.Instance;
 
-        public INIFP(int I3, int II, int JJ, int JRT)
+        public static void INIFP(int I3, int II, int JJ, int JRT)
         {
             // EPIC0810
             // Translated by Paul Cain
@@ -21,6 +21,10 @@ namespace Epic
             //	even though C# use base 0 arrays and fortran use base 1 
             //	arrays. I did this to avoid confusion until we have a better
             // 	understanding of how the program works.
+
+            /* ADDITIONAL CHANGE
+           * 8/17/2012    Modified by Paul Cain to make it part of the Functions partial class
+           */
 
             int I1 = I3 - 6;
 

@@ -35,7 +35,7 @@ namespace Epic
 			double JRT = 0.0;
 			if (PARM.ALS[PARM.ISL] > A0){
 				F = (100-PARM.ALS[PARM.ISL])/(100-A0);
-				JRT = 0.0; // JRT exist no where...where are these variables coming from
+				JRT = 0.0;
 				//Functions.CFRG(2, II, F, RGS, .1, PARM.JRT);
 				if (JRT>0){
 					PARM.STDA[II, PARM.JJK] = PARM.STDA[II, PARM.JJK] + (1-RGS)/PARM.NBSL;

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 namespace Epic
 {
     /*
@@ -9,9 +10,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/11/2012
      */
-    public class NLGB
+    public partial class Functions
     {
-        public NLGB(ref double WTI, ref double WTO, ref double WTB, ref double WTE, ref double KW, ref double MSO)
+        public static void NLGB(ref double WTI, ref double WTO, ref double WTB, ref double WTE, ref FileStream[] KW, ref int MSO)
         {
             double DF = WTB + WTI - WTO - WTE;
             double PER = 200.0 * DF / (WTB + WTE);

@@ -10,9 +10,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/10/2012
      */
-    public class NDNITAK
+    public partial class Functions
     {
-        public NDNITAK()
+        public static void NDNITAK()
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 

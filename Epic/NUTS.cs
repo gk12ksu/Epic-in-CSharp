@@ -10,9 +10,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/8/2012
      */
-    public class NUTS
+    public partial class Functions
     {
-        public NUTS(ref double U1, ref double U2, ref double UU)
+        public static void NUTS(ref double U1, ref double U2, ref double UU)
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 

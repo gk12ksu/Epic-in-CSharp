@@ -12,9 +12,9 @@ namespace Epic
      * This file has had its array indicies shifted for C#
      * Last Modified On 7/10/2012
      */
-    public class NDNITCI
+    public partial class Functions
     {
-        public NDNITCI()
+        public static void NDNITCI()
         {
             Epic.MODPARAM PARM = Epic.MODPARAM.Instance;
 
@@ -32,7 +32,7 @@ namespace Epic
 !     SM2=0.
 !     SM3=0.
 */
-            for (int J = 1; J < PARM.NBCL; J++)
+            for (int J = 1; J <= PARM.NBCL; J++)
             {
                 //AD1=AD1+WNO3(J)+WNO2(J)
                 //EA=TOTAL ELECTRONS ACCEPTED BY O2 AND N OXIDES

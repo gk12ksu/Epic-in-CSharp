@@ -1,4 +1,5 @@
-﻿namespace Epic
+﻿using System.IO;
+namespace Epic
 {
     public class MODPARAM
     {
@@ -24,11 +25,16 @@
 
         //CHARACTER(4)::TITLE(60),HEDS(30),HEDC(20),SID(16),HEDP(10) //Original declarations of some char arrays saved for error checking
         public char[,] TITLE = new char[60, 4], HEDS = new char[30, 4], HEDC = new char[20, 4], SID = new char[16, 4], HEDP = new char[10, 4];
-        public char[] ASTN = new char[8];
-        public char[] OPSCFILE = new char[20], SITEFILE = new char[20], SOILFILE = new char[20];
-        public char[] FWTH = new char[80];
+        //public char[] ASTN = new char[8];
+        public string ASTN;
+        public char[] SITEFILE = new char[20], SOILFILE = new char[20];
+        public string OPSCFILE;
+        //public char[] FWTH = new char[80];
+        public string FWTH;
         //CHARACTER(4),DIMENSION(:),ALLOCATABLE::CPNM,HED      
-        public char[,] CPNM, HED;
+        //public char[,] CPNM;
+        public string[] CPNM;
+        public string[] HED = new string[98];
         //CHARACTER(8),DIMENSION(:),ALLOCATABLE::FTNM,TIL                                
         public char[,] FTNM, TIL;
         //CHARACTER(16),DIMENSION(:),ALLOCATABLE::PSTN  
@@ -38,9 +44,10 @@
         public int INFL, INP, IOX, IPAT, IPD, IPL, IPST, IPY, IPYI, IRI, IRL, IRO, IRO0, IRR, IRUN, IRTC, ISAT, ISCN, ISG, ISL, ISTA, ISTP, ISW, ISX, ITYP, IT1, IT2, IT3, IUN, IWP5, IWTH, IY, IYER, IYR, IYR0, IYX, JCN, JCN0, JCN1, JD, JDA, JDHU, JJK, JT1, JT2, KC, KDA, KF, KHV, KI, KP, KP1, KT;
         public int KTT, K21, LBP, LC, LD1, LMS, LPYR, LRD, LUN, LW, M21, MASP, MFT, MNC, MNT, MNU, MO, MO1, MOFX, MPS, MRO, MSL, MSO, MXT, MYR, NBCL, NBDT, NBSL, NBYR, ND, NDF, NDP, NDRV, NDT, NDVSS, NEV, NFA, NFS, NGF, NGN, NGN0, NII, NJC, NKA, NKD, NKS, NKYA, NMW, NNE, NOFT, NOP, NQP, NQP0, NQP1, NRO, NSM, NSNN, NSTP, NSX, NUDK, NUPC, NVCN, NWDA, NWD0, NWI, NYD;
 
-        public int[] NX = new int[43000], KDF1 = new int[8000], KDP1 = new int[8000], KDC1 = new int[800], KW = new int[200], IGY = new int[150], KDT2 = new int[100], KA = new int[100], IFS = new int[40], KD = new int[40], KYA = new int[40], KS = new int[40];
-        public int[] KR = new int[30], NHC = new int[26], IDG = new int[21], IX = new int[21], IX0 = new int[21], NC = new int[13], IHRL = new int[12], IWIX = new int[12], IDC = new int[10], NDC = new int[10], IYS = new int[8], JX = new int[7], ISIX = new int[6], KGN = new int[5], JC = new int[4], IDFT = new int[2];
-
+        public int[] NX = new int[43000], KDF1 = new int[8000], KDP1 = new int[8000], KDC1 = new int[800], IGY = new int[150], KDT2 = new int[100], KA = new int[100], IFS = new int[40], KD = new int[40], KYA = new int[40], KS = new int[40];
+        public int[] NHC = new int[26], IDG = new int[21], IX = new int[21], IX0 = new int[21], NC = new int[13], IHRL = new int[12], IWIX = new int[12], IDC = new int[10], NDC = new int[10], IYS = new int[8], JX = new int[7], ISIX = new int[6], KGN = new int[5], JC = new int[4], IDFT = new int[2];
+        //public int[] KW = new int[200], KR = new int[30];
+        public FileStream[] KW = new FileStream[200], KR = new FileStream[30];
 
         public int[] IHU, IYH, JE, JP, JPL, KDC, KFL, KG, KOMP, LID, LORG, NBC, NBE, NBT, NCP, NCR, NHU, NHV, NPST, NTL, NYLN, ICUS, IHC, IHT, KDF, KDP;
         public int[,] ITL, LFT, LT, LYR, NGZ, LPC, JH, LY, NBCX, IGMD, IHVD, IPLD, NPSF;
